@@ -30,4 +30,31 @@ public class StatusController : ControllerBase
             dataConsulta = DateTime.Now
         });
     }
+
+    [HttpGet("resumo")]
+    public async Task<IActionResult> Resumo()
+    {
+        var totalCadifa = await _context.Cadifa.CountAsync();
+
+        var totalInclusoes = await _context.CadifaAlteracoes
+            .CountAsync(x => x.Tipo == "INCLUSAO");
+
+        var totalExclusoes = await _context.CadifaAlteracoes
+            .CountAsync(x => x.Tipo == "EXCLUSAO");
+
+        DateTime? ultimaAlteracao = await _context.CadifaAlteracoes
+        .OrderByDescending(x => x.DataDeteccao)
+        .Select(x => (DateTime?)x.DataDeteccao)
+        .FirstOrDefaultAsync();
+
+        return Ok(new
+        {
+            totalCadifa,
+            totalInclusoes,
+            totalExclusoes,
+            totalAlteracoes = totalInclusoes + totalExclusoes,
+            ultimaAlteracao,
+            dataConsulta = DateTime.Now
+        });
+    }
 }
