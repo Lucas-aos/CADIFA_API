@@ -1,12 +1,18 @@
+# Build
 bin/
 obj/
 
+# Visual Studio
 .vs/
 .vscode/
 
-appsettings.json
-
+# User files
 *.user
 *.suo
 
+# Environment variables
 .env
+
+# Configuration with secrets
+appsettings.Development.json
+appsettings.json
