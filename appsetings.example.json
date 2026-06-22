@@ -1,5 +1,5 @@
 {
     "ConnectionStrings": {
-        "DefaultConnection": "Host=SEU_HOST;Port=5432;Database=SEU_BANCO;Username=SEU_USUARIO;Password=SUA_SENHA"
+        "DefaultConnection": "Host=HOST;Port=5432;Database=BANCO;Username=USUARIO;Password=SENHA"
     }
 }
