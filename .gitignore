@@ -4,7 +4,7 @@ obj/
 .vs/
 .vscode/
 
-appsettings.Development.json
+appsettings.json
 
 *.user
 *.suo
