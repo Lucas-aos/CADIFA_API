@@ -1,5 +1,6 @@
 # API de Consulta CADIFA
 
+[![Swagger](https://img.shields.io/badge/API-Live-success)](https://cadifa-api.onrender.com/swagger)
 ![.NET](https://img.shields.io/badge/.NET-8.0-purple)
 ![ASP.NET Core](https://img.shields.io/badge/ASP.NET_Core-API-blue)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-336791)
@@ -16,6 +17,12 @@ Os dados são coletados automaticamente a partir do Power BI público da ANVISA,
 O projeto disponibiliza uma API para consulta dos registros CADIFA extraídos de uma fonte pública da ANVISA: [Portal CADIFA](https://app.powerbi.com/view?r=eyJrIjoiOTQwZDZjZWEtNzUwNy00MTdhLTk3ZDEtN2VhNDM2ZDNhMTEzIiwidCI6ImI2N2FmMjNmLWMzZjMtNGQzNS04MGM3LWI3MDg1ZjVlZGQ4MSJ9)
 
 A coleta e atualização dos dados é feita por um processo ETL em Python, enquanto esta API em C# expõe os dados para consulta.
+
+## Demonstração
+
+- Swagger: [CADIFA API Swagger](https://cadifa-api.onrender.com/swagger)
+- Status: [API Status](https://cadifa-api.onrender.com/api/status)
+- Consulta CADIFA: [Exemplo por empresa](https://cadifa-api.onrender.com/api/cadifa?empresa=aarti)
 
 ## Arquitetura
 
