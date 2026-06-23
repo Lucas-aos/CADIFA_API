@@ -125,6 +125,8 @@ http://localhost:5229/swagger
 ## Segurança
 O arquivo appsettings.json não deve ser versionado, pois contém dados sensíveis de conexão com o banco.
 
+O processo ETL responsável pela coleta e atualização dos dados é mantido em repositório privado por conter detalhes de integração com a fonte externa.
+
 ## Roadmap
 
 ### Versão 1.1
