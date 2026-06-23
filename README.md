@@ -127,7 +127,7 @@ O arquivo appsettings.json não deve ser versionado, pois contém dados sensíve
 
 ## Roadmap
 
-### Versão 1.0
+### Versão 1.1
 
 - [x] Integração com PostgreSQL Neon
 - [x] API ASP.NET Core 8
@@ -140,10 +140,10 @@ O arquivo appsettings.json não deve ser versionado, pois contém dados sensíve
 - [x] Monitoramento de exclusões
 - [x] Histórico de alterações
 - [x] Endpoint de resumo
+- [x] Deploy público no Render
 
 ### Próximas versões
 
-- [ ] Deploy público no Render
 - [ ] Agendamento automático do ETL
 - [ ] Notificação por e-mail quando houver alterações
 - [ ] Exportação para Excel
