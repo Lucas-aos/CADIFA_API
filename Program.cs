@@ -16,15 +16,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
 
-    app.MapGet("/", () => Results.Redirect("/swagger"))
-       .ExcludeFromDescription();
+app.UseSwaggerUI(options =>
+{
+    options.RoutePrefix = "swagger";
+});
 
-    app.MapControllers();
+app.MapGet("/", () => Results.Redirect("/swagger"))
+    .ExcludeFromDescription();
+
+app.MapControllers();
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5229";
-    app.Urls.Add($"http://0.0.0.0:{port}");
+app.Urls.Add($"http://0.0.0.0:{port}");
 
-    app.Run();
+app.Run();
