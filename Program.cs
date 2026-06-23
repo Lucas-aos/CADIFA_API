@@ -29,4 +29,7 @@ app.MapGet("/", () => Results.Redirect("/swagger"))
 
 app.MapControllers();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5229";
+app.Urls.Add($"http://0.0.0.0:{port}");
+
 app.Run();
