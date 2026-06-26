@@ -42,6 +42,7 @@ public class AppDbContext : DbContext
             entity.Property(e => e.Data).HasColumnName("data");
             entity.Property(e => e.Hash).HasColumnName("hash");
             entity.Property(e => e.DataDeteccao).HasColumnName("data_deteccao");
+            entity.Property(e => e.NotificadoEm).HasColumnName("notificado_em");
         });
     }
 }

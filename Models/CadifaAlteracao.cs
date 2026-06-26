@@ -19,4 +19,6 @@ public class CadifaAlteracao
     public string? Hash { get; set; }
 
     public DateTime DataDeteccao { get; set; }
+
+    public DateTime? NotificadoEm { get; set; }
 }

@@ -1,6 +1,8 @@
 using CadifaApi.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using CadifaApi.DTOs;
+using CadifaApi.Services;
 
 namespace CadifaApi.Controllers;
 
@@ -9,10 +11,12 @@ namespace CadifaApi.Controllers;
 public class AlteracoesController : ControllerBase
 {
     private readonly AppDbContext _context;
+    private readonly NotificationService _notificationService;
 
-    public AlteracoesController(AppDbContext context)
+    public AlteracoesController(AppDbContext context, NotificationService notificationService)
     {
         _context = context;
+        _notificationService = notificationService;
     }
 
     [HttpGet]
@@ -48,4 +52,27 @@ public class AlteracoesController : ControllerBase
             dados
         });
     }
+    [HttpGet("notificacao")]
+    public async Task<ActionResult<AlteracoesNotificacaoResponse>> GetNotificacao()
+    {
+
+        var response = await _notificationService.ObterNotificacaoEmailAsync();
+
+    return Ok(response);
+    }
+    [HttpGet("notificacao/detalhes")]
+    public async Task<ActionResult<AlteracoesNotificacaoResponse>> GetNotificacaoDetalhes()
+    {
+        var response = await _notificationService.ObterAlteracoesPendentesAsync();
+        return Ok(response);
+    }
+    [HttpPost("marcar-notificadas")]
+    public async Task<IActionResult> MarcarComoNotificadas([FromBody] MarcarNotificadasRequest request)
+    {
+
+        var resultado = await _notificationService.MarcarComoNotificadasAsync(request.Ids);
+
+        return Ok(resultado);
+    }
+
 }
