@@ -20,11 +20,12 @@ O projeto automatiza todo o fluxo de atualização do **Cadastro de Insumos Farm
 O pipeline realiza:
 
 - Extração automática dos dados
-- Interpretação da estrutura comprimida do Power BI
+- Parser da estrutura comprimida do Power BI
+- Comparação inteligente entre versões
+- Detecção de inclusões, exclusões e atualização de revisões
 - Atualização do banco PostgreSQL
-- Histórico de alterações
 - Disponibilização dos dados por API REST
-- Atualização automática via GitHub Actions
+- Atualização automática via GitHub Actions por e-mail
 
 ---
 
@@ -77,7 +78,7 @@ Este projeto automatiza completamente esse processo, permitindo que aplicações
 ![CADIFA](Imagens/PainelCadifa.png)
 
 ## Exemplo de Recebimento do E-mail
-![Email](Imagens/Email.png)
+![Email](Imagens/E-mail.png)
 
 ---
 
@@ -109,6 +110,13 @@ Este projeto automatiza completamente esse processo, permitindo que aplicações
 - ✅ Endpoint de resumo
 - ✅ Deploy público no Render
 - ✅ Atualização automática via GitHub Actions
+
+---
+# Diferenciais
+
+Ao contrário de uma simples sincronização entre bases de dados, o projeto identifica alterações regulatórias de forma inteligente.
+
+Além de detectar inclusões e exclusões de registros, o sistema reconhece automaticamente quando um registro sofre apenas atualização de revisão, evitando notificações duplicadas e produzindo um histórico mais fiel às alterações publicadas pela ANVISA.
 
 ---
 
@@ -184,9 +192,11 @@ GET /api/alteracoes
 
 # Casos de Uso
 
-- Automação de Acompanhamento de Sistemas regulatórios
-- Integração com aplicações internas
-- Desenvolvimento de aplicações terceiras
+- Monitoramento automático de alterações no CADIFA
+- Apoio ao setor de Assuntos Regulatórios
+- Integração com aplicações corporativas
+- Consumo por sistemas internos via API REST
+- Base para dashboards regulatórios
 
 ---
 
@@ -209,6 +219,7 @@ O processo responsável pela coleta e atualização automática dos dados (ETL P
 - [x] Paginação
 - [x] Monitoramento de inclusões
 - [x] Monitoramento de exclusões
+- [x] Detecção inteligente de atualização de revisão
 - [x] Histórico de alterações
 - [x] Endpoint de resumo
 - [x] Deploy público no Render
@@ -217,7 +228,22 @@ O processo responsável pela coleta e atualização automática dos dados (ETL P
 - [x] Exportação para Excel (via e-mail)
 
 ### Próxima versão
-- [ ] Dashboard web para consulta de histórico e serviço de assinatura
+
+- [ ] Dashboard web administrativo
+- [ ] Consulta ao histórico de alterações
+- [ ] Exportação para Excel
+- [ ] Assinatura de notificações por empresa
+- [ ] Assinatura de notificações por insumo
+
+---
+
+## Aviso Legal
+
+Este projeto utiliza dados públicos disponibilizados pela Agência Nacional de Vigilância Sanitária (ANVISA) por meio de seu painel público no Power BI.
+
+O CADIFA Monitor é um projeto independente, desenvolvido para fins de estudo, demonstração técnica e portfólio, sem qualquer vínculo, afiliação, patrocínio ou endosso oficial da ANVISA.
+
+As informações disponibilizadas por esta aplicação são obtidas a partir de dados públicos e processadas por uma implementação própria de ETL, API REST e sistema de notificações. Embora sejam adotadas medidas para garantir a consistência das informações, este projeto não substitui a consulta às fontes oficiais da ANVISA e não deve ser utilizado como única base para decisões regulatórias.
 
 ---
 
