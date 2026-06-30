@@ -198,7 +198,7 @@ O processo responsável pela coleta e atualização automática dos dados (ETL P
 
 # Roadmap
 
-### Versão 1.2
+### Versão 1.0
 
 - [x] Integração com PostgreSQL Neon
 - [x] API ASP.NET Core 8
